@@ -13,7 +13,8 @@ import Header from "../heading/Heading";
  * @param {username}
  * password param returns undefined which makes the form not render
  * @param {password}
- *
+ * solved with:
+ * https://stackoverflow.com/questions/66927051/getting-uncaught-typeerror-path-split-is-not-a-function-in-react
  */
 
 const url = BASE_URL + TOKEN_PATH;
@@ -27,14 +28,13 @@ function Loginform() {
   const [sending, setSubmit] = useState(false);
   const [loginError, setloginError] = useState(null);
 
-  const { register, handleSubmit, errors } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
 
   async function onSubmit(data) {
     setSubmit(true);
@@ -60,12 +60,12 @@ function Loginform() {
         {loginError && <FormErrorMessage>{loginError}</FormErrorMessage>}
         <fieldset disabled={sending}>
           <div>
-            <input type="text" user="username" placeholder="Username" ref={register} />
+            <input {...register("username", { required: true })} />
             {errors.username && <FormErrorMessage>{errors.username.message}</FormErrorMessage>}
           </div>
 
           <div>
-            <input name="password" placeholder="Password" ref={register} type="password" />
+            <input {...register("password", { required: true })} />
             {errors.password && <FormErrorMessage>{errors.password.message}</FormErrorMessage>}
           </div>
           <button>{sending ? "Loggin in..." : "Login"}</button>
