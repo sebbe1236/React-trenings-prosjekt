@@ -18,7 +18,7 @@ function Navigation() {
               </Link>
 
               <Link className="nav_links" to="/blogs">
-                Blogs
+                Blogsss
               </Link>
 
               <Link className="nav_links" to="/login">
