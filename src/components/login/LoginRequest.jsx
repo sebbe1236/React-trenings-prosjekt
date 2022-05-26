@@ -19,8 +19,7 @@ import Header from "../heading/Heading";
  */
 
 const url = BASE_URL + TOKEN_PATH;
-console.log(process.env.REACT_APP_BASE_URL);
-console.log(url);
+
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
   password: yup.string().required("please fill in your password"),
