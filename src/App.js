@@ -6,6 +6,7 @@ import Navigation from "./components/nav/Navbar";
 import Home from "./components/home/Homepage";
 import Blogs from "./components/blogs/Blog";
 import Login from "./components/login/Loginpage";
+
 function App() {
   return (
     <BrowserRouter>

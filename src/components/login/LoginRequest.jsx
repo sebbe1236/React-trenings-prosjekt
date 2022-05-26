@@ -14,10 +14,12 @@ import Header from "../heading/Heading";
  * password param returns undefined which makes the form not render
  * @param {password}
  * solved with:
+ *
  * https://stackoverflow.com/questions/66927051/getting-uncaught-typeerror-path-split-is-not-a-function-in-react
  */
 
 const url = BASE_URL + TOKEN_PATH;
+console.log(process.env.REACT_APP_BASE_URL);
 console.log(url);
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
@@ -46,7 +48,7 @@ function Loginform() {
       console.log(url);
       console.log("login succesful", response.data);
     } catch (error) {
-      console.log("erroor", error);
+      console.log("error, invalid inputs", error);
       setloginError(error.toString());
     } finally {
       setSubmit(false);
