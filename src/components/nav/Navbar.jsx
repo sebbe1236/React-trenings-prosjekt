@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-
-import { Link } from "react-router-dom";
+import Authcontext from "../context/Authcontext";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "bootstrap";
 function Navigation() {
+  const [auth, setAuth] = useContext(Authcontext);
+
+  const history = useNavigate();
+
+  function logout() {
+    setAuth(null);
+    history.push("/");
+  }
+
   return (
     <>
       <Navbar bg="dark" variant={"dark"} expand="lg">
@@ -16,14 +26,13 @@ function Navigation() {
               <Link className="nav_links" to="/">
                 Home
               </Link>
-
-              <Link className="nav_links" to="/blogs">
-                Blogsss
-              </Link>
-
-              <Link className="nav_links" to="/login">
-                Login
-              </Link>
+              {auth ? (
+                <>
+                  <Link to="/blogs">Blogs</Link> | <Button onClick={logout}>Log Out</Button>
+                </>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -6,17 +6,20 @@ import Navigation from "./components/nav/Navbar";
 import Home from "./components/home/Homepage";
 import Blogs from "./components/blogs/Blog";
 import Login from "./components/login/Loginpage";
+import Authentication from "./components/context/Authcontext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} exact />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <Authentication>
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} exact />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </Authentication>
   );
 }
 

@@ -19,7 +19,7 @@ import Header from "../heading/Heading";
  */
 
 const url = BASE_URL + TOKEN_PATH;
-
+console.log(url);
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
   password: yup.string().required("please fill in your password"),
@@ -62,12 +62,12 @@ function Loginform() {
         <fieldset disabled={sending}>
           <div>
             <input {...register("username", { required: true })} />
-            {errors.username && <FormErrorMessage>{errors.username.message}</FormErrorMessage>}
+            <span>{errors.username?.message}</span>
           </div>
 
           <div>
             <input {...register("password", { required: true })} />
-            {errors.password && <FormErrorMessage>{errors.password.message}</FormErrorMessage>}
+            <span>{errors.password?.message}</span>
           </div>
           <button>{sending ? "Loggin in..." : "Login"}</button>
         </fieldset>
