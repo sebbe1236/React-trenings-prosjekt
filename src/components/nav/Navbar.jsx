@@ -4,17 +4,17 @@ import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import AuthContext, { useAuth } from "../context/Authcontext";
 import { Link, useNavigate } from "react-router-dom";
-
-import { Button } from "bootstrap";
+import { Button } from "react-bootstrap";
 
 function Navigation() {
   const [auth, setAuth] = useAuth();
 
-  const history = useNavigate();
+  //const history = useNavigate();
 
   function logout() {
     setAuth(null);
-    history.push("/");
+    console.log(setAuth);
+    //history.push("/");
   }
 
   return (
@@ -29,7 +29,9 @@ function Navigation() {
                 Home
               </Link>
               {auth ? (
-                <Link to="/blogs">Blogs</Link> | <Button onClick={logout}>Log Out</Button>
+                <>
+                  <Link to="/blogs">Blogs</Link> | <Button onClick={logout}>Log Out</Button>
+                </>
               ) : (
                 <Link to="/login">Login</Link>
               )}

@@ -3,9 +3,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/nav/Navbar";
-import Home from "./components/home/Homepage";
+import Home from "./components/pages/Homepage";
 import Blogs from "./components/blogs/Blog";
-import Login from "./components/login/Loginpage";
+import Login from "./components/pages/Loginpage";
 import Authentication from "./components/context/Authcontext";
 
 function App() {

@@ -22,7 +22,7 @@ import Header from "../heading/Heading";
  */
 
 const url = BASE_URL + TOKEN_PATH;
-console.log(url);
+
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
   password: yup.string().required("please fill in your password"),
@@ -53,7 +53,7 @@ function LoginForm() {
       setAuth(response.data);
       console.log(url);
       console.log("login succesful", response.data);
-      history.push("/blogs");
+      //history.push("/blogs");
     } catch (error) {
       console.log("error, invalid inputs", error);
       setloginError(error.toString());
