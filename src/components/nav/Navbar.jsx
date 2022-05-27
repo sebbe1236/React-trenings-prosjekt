@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import AuthContext from "../context/Authcontext";
+import AuthContext, { useAuth } from "../context/Authcontext";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "bootstrap";
 
 function Navigation() {
-  const [auth, setAuth] = useContext(AuthContext);
+  const [auth, setAuth] = useAuth();
 
   const history = useNavigate();
 
