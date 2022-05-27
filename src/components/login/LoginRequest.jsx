@@ -5,9 +5,10 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
-import AuthContext from "../context/Authcontext";
+import Authcontext from "../context/Authcontext";
 import Header from "../heading/Heading";
 
 /**
@@ -40,7 +41,7 @@ function Loginform() {
     resolver: yupResolver(schema),
   });
 
-  const [auth, setAuth] = useContext(AuthContext);
+  const [auth, setAuth] = useContext(Authcontext);
 
   async function onSubmit(data) {
     setSubmit(true);
