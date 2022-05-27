@@ -50,6 +50,7 @@ function Loginform() {
 
     try {
       const response = await axios.post(url, data);
+      setAuth(response.data);
       console.log(url);
       console.log("login succesful", response.data);
       history.push("/blogs");
