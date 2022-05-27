@@ -28,7 +28,7 @@ const schema = yup.object().shape({
   password: yup.string().required("please fill in your password"),
 });
 
-function Loginform() {
+function LoginForm() {
   const [sending, setSubmit] = useState(false);
   const [loginError, setloginError] = useState(null);
   const history = useNavigate();
@@ -84,4 +84,4 @@ function Loginform() {
   );
 }
 
-export default Loginform;
+export default LoginForm;
