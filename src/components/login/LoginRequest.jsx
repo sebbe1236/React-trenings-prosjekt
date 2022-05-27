@@ -2,10 +2,12 @@ import React from "react";
 import FormErrorMessage from "../common/FormErrorMessage";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
+import AuthContext from "../context/Authcontext";
 import Header from "../heading/Heading";
 
 /**
@@ -28,6 +30,7 @@ const schema = yup.object().shape({
 function Loginform() {
   const [sending, setSubmit] = useState(false);
   const [loginError, setloginError] = useState(null);
+  const history = useNavigate();
 
   const {
     register,
@@ -36,6 +39,8 @@ function Loginform() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const [auth, setAuth] = useContext(AuthContext);
 
   async function onSubmit(data) {
     setSubmit(true);
@@ -46,6 +51,7 @@ function Loginform() {
       const response = await axios.post(url, data);
       console.log(url);
       console.log("login succesful", response.data);
+      history.push("/blogs");
     } catch (error) {
       console.log("error, invalid inputs", error);
       setloginError(error.toString());

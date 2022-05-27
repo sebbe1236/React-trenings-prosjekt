@@ -4,12 +4,8 @@ import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import Authcontext from "../context/Authcontext";
 import { Link, useNavigate } from "react-router-dom";
-//import { useContext } from "react";
+
 import { Button } from "bootstrap";
-/**
- * if i remove the // from useContext import it throws
- * @returns  Identifier 'useContext' has already been declared. (7:9)
- */
 
 function Navigation() {
   const [auth, setAuth] = useContext(Authcontext);
@@ -33,9 +29,7 @@ function Navigation() {
                 Home
               </Link>
               {auth ? (
-                <>
-                  <Link to="/blogs">Blogs</Link> | <Button onClick={logout}>Log Out</Button>
-                </>
+                <Link to="/blogs">Blogs</Link> | <Button onClick={logout}>Log Out</Button>
               ) : (
                 <Link to="/login">Login</Link>
               )}
