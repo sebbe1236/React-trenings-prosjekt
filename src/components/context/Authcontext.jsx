@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const Authcontext = React.createContext([null, () => {}]);
+const AuthContext = React.createContext([null, () => {}]);
 
 function Authentication(props) {
   const [auth, setAuth] = useState(null);
-  return <Authcontext.Provider value={[auth, setAuth]}>{props.children}</Authcontext.Provider>;
+  return <AuthContext.Provider value={[auth, setAuth]}>{props.children}</AuthContext.Provider>;
 }
 
 export default Authentication;

@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
-import Authcontext from "../context/Authcontext";
+import AuthContext from "../context/Authcontext";
 import Header from "../heading/Heading";
 
 /**
@@ -41,7 +41,7 @@ function Loginform() {
     resolver: yupResolver(schema),
   });
 
-  const [auth, setAuth] = useContext(Authcontext);
+  const [auth, setAuth] = useContext(AuthContext);
 
   async function onSubmit(data) {
     setSubmit(true);
