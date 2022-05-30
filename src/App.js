@@ -4,9 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/nav/Navbar";
 import Home from "./components/pages/Homepage";
-import Blogs from "./components/blogs/Blog";
+import Blogs from "./components/blogs/BlogsCall";
+import AddBlog from "./components/blogs/AddBlog";
 import Login from "./components/pages/Loginpage";
 import Authentication from "./components/context/AuthContext";
+import FooterElement from "./components/footer/Footer";
 
 function App() {
   return (
@@ -17,8 +19,10 @@ function App() {
           <Route path="/" element={<Home />} exact />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/addpost" element={<AddBlog />} />
         </Routes>
       </BrowserRouter>
+      <FooterElement />
     </Authentication>
   );
 }

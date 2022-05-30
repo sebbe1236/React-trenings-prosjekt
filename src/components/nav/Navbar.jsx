@@ -9,12 +9,12 @@ import { Button } from "react-bootstrap";
 function Navigation() {
   const [auth, setAuth] = useAuth();
 
-  //const history = useNavigate();
+  const navigate = useNavigate();
 
   function logout() {
     setAuth(null);
-    console.log(setAuth);
-    //history.push("/");
+
+    navigate("/");
   }
 
   return (
@@ -31,7 +31,7 @@ function Navigation() {
               <Link to="/blogs">Blogs</Link>
               {auth ? (
                 <>
-                  <Button onClick={logout}>Log Out</Button>
+                  <Link to="/addpost">Add post</Link> | <Button onClick={logout}>Log Out</Button>
                 </>
               ) : (
                 <Link to="/login">Login</Link>
