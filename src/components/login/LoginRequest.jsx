@@ -5,10 +5,10 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext } from "react";
+
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
-import AuthContext, { useAuth } from "../context/Authcontext";
+import { useAuth } from "../context/AuthContext";
 import Header from "../heading/Heading";
 
 /**
@@ -31,7 +31,7 @@ const schema = yup.object().shape({
 function LoginForm() {
   const [sending, setSubmit] = useState(false);
   const [loginError, setloginError] = useState(null);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -53,7 +53,7 @@ function LoginForm() {
       setAuth(response.data);
       console.log(url);
       console.log("login succesful", response.data);
-      //history.push("/blogs");
+      navigate("/blogs");
     } catch (error) {
       console.log("error, invalid inputs", error);
       setloginError(error.toString());

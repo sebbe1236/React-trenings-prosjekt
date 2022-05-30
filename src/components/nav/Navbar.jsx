@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import AuthContext, { useAuth } from "../context/Authcontext";
+import AuthContext, { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
@@ -28,9 +28,10 @@ function Navigation() {
               <Link className="nav_links" to="/">
                 Home
               </Link>
+              <Link to="/blogs">Blogs</Link>
               {auth ? (
                 <>
-                  <Link to="/blogs">Blogs</Link> | <Button onClick={logout}>Log Out</Button>
+                  <Button onClick={logout}>Log Out</Button>
                 </>
               ) : (
                 <Link to="/login">Login</Link>

@@ -6,7 +6,7 @@ import Navigation from "./components/nav/Navbar";
 import Home from "./components/pages/Homepage";
 import Blogs from "./components/blogs/Blog";
 import Login from "./components/pages/Loginpage";
-import Authentication from "./components/context/Authcontext";
+import Authentication from "./components/context/AuthContext";
 
 function App() {
   return (
