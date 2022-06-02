@@ -53,6 +53,7 @@ function LoginForm() {
       setAuth(response.data);
       console.log(url);
       console.log("login succesful", response.data);
+
       navigate("/blogs");
     } catch (error) {
       console.log("error, invalid inputs", error);

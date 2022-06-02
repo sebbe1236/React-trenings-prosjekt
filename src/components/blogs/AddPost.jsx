@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import Header from "../heading/Heading";
 import useAxios from "../hooks/ReuseAbleAuth";
 function AddBlog() {
-  const [submit, setSubmitting] = useState(false);
+  const [submiting, setSubmit] = useState(false);
   const [error, setError] = useState(null);
 
   const {
@@ -17,21 +17,25 @@ function AddBlog() {
 
   const [auth, setAuth] = useAuth();
 
-  async function addPost() {
+  async function onSubmit() {
+    setSubmit(true);
+    setError(null);
+    console.log(data);
+
     const url = `${BASE_URL}/wp/v2/posts`;
 
     const formData = new FormData();
 
-    const data = JSON.stringify({ title, excerpt, featured_media });
+    const data = JSON.stringify({ title: "title", excerpt: "excerpt" });
 
-    formData.append("files.image", featured_media[0]);
+    formData.append("files.featured_media", featured_media[0]);
     formData.append("data", data);
 
     const options = {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: `auth ${auth}`,
+        Authorization: `Bearer ${auth.token}`,
       },
     };
     try {
@@ -39,9 +43,34 @@ function AddBlog() {
       const json = await response.json();
       console.log(json);
     } catch (error) {
-      console.log("error", error.toString());
+      console.log("error");
+      setError(error.toString());
+    } finally {
+      setSubmit(false);
     }
   }
+
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <fieldset disabled={submiting}>
+          <div>
+            <input {...register("title", { required: true })} />
+            <span>{errors.title?.message}</span>
+          </div>
+          <div>
+            <input type="file" {...register("file", { required: true })} />
+            <span>{errors.title?.message}</span>
+          </div>
+          <div>
+            <input {...register("excerpt", { required: true })} />
+            <span>{errors.excerpt?.message}</span>
+          </div>
+          <button type="submit">Send</button>
+        </fieldset>
+      </form>
+    </>
+  );
 }
 
 export default AddBlog;
