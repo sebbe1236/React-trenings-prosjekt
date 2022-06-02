@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+//Funksjon for reuseable authentization, sånnn at token i storage ikke blir sletta i page reload
 const url = process.env.REACT_APP_BASE_URL;
 function useAxios() {
   const [auth] = useAuth();

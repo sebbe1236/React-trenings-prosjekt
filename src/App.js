@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/nav/Navbar";
 import Home from "./components/pages/Homepage";
 import Blogs from "./components/blogs/BlogsCall";
-import AddBlog from "./components/blogs/AddBlog";
+import AddBlog from "./components/blogs/AddPost";
 import Login from "./components/pages/Loginpage";
 import Authentication from "./components/context/AuthContext";
 import FooterElement from "./components/footer/Footer";
