@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { BASE_URL, TOKEN_PATH } from "../../constants/api";
+import { BASE_URL } from "../../constants/api";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
-import Header from "../heading/Heading";
-import useAxios from "../hooks/ReuseAbleAuth";
+import FormErrorMessage from "../common/FormErrorMessage";
+// import Header from "../heading/Heading";
+// import useAxios from "../hooks/ReuseAbleAuth";
 function AddBlog() {
   const [submiting, setSubmit] = useState(false);
   const [error, setError] = useState(null);
@@ -17,19 +18,18 @@ function AddBlog() {
 
   const [auth, setAuth] = useAuth();
 
-  async function onSubmit() {
+  async function onSubmit(data) {
     setSubmit(true);
     setError(null);
-    console.log(data);
 
     const url = `${BASE_URL}/wp/v2/posts`;
 
     const formData = new FormData();
 
-    const data = JSON.stringify({ title: "title", excerpt: "excerpt" });
+    const dataAppend = JSON.stringify({ title: "title", excerpt: "excerpt" });
 
     formData.append("files.featured_media", featured_media[0]);
-    formData.append("data", data);
+    formData.append("data", dataAppend);
 
     const options = {
       method: "POST",
@@ -53,6 +53,7 @@ function AddBlog() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
+        {error && <FormErrorMessage>{error}</FormErrorMessage>}
         <fieldset disabled={submiting}>
           <div>
             <input {...register("title", { required: true })} />
