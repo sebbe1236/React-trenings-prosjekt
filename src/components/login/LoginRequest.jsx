@@ -47,15 +47,15 @@ function LoginForm() {
 
   const [auth, setAuth] = useAuth();
 
-  async function onSubmit(data) {
+  async function onSubmit(data, username, password) {
     setSubmit(true);
     setloginError(null);
     console.log(data);
 
     try {
       const response = await axios.post(url, {
-        identifier: "gunther",
-        password: "password1",
+        identifier: username,
+        password: password,
       });
       setAuth(response.data.jwt);
       console.log(data);
