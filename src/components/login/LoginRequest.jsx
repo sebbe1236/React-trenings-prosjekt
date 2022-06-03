@@ -12,6 +12,7 @@ import { useAuth } from "../context/AuthContext";
 import Header from "../heading/Heading";
 
 /**
+ * Prøv å restart app når du endrer endpoints tilbake til strapi
  * username param returns undefined which makes the form not render
  * @param {username}
  * password param returns undefined which makes the form not render
@@ -21,8 +22,11 @@ import Header from "../heading/Heading";
  * https://stackoverflow.com/questions/66927051/getting-uncaught-typeerror-path-split-is-not-a-function-in-react
  */
 
-const url = BASE_URL + TOKEN_PATH;
+//const url = BASE_URL + TOKEN_PATH;
+//const url = BASE_URL + "/api/auth/local";
 
+const url = "http://localhost:1337/api/auth/local";
+console.log(url);
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
   password: yup.string().required("please fill in your password"),
@@ -49,14 +53,18 @@ function LoginForm() {
     console.log(data);
 
     try {
-      const response = await axios.post(url, data);
-      setAuth(response.data);
+      const response = await axios.post(url, {
+        identifier: "gunther",
+        password: "password1",
+      });
+      setAuth(response.data.jwt);
+      console.log(data);
       console.log(url);
       console.log("login succesful", response.data);
 
       navigate("/blogs");
     } catch (error) {
-      console.log("error, invalid inputs", error);
+      console.log("error, invalid inputs", error.message);
       setloginError(error.toString());
     } finally {
       setSubmit(false);
@@ -70,12 +78,12 @@ function LoginForm() {
         {loginError && <FormErrorMessage>{loginError}</FormErrorMessage>}
         <fieldset disabled={sending}>
           <div>
-            <input {...register("username", { required: true })} />
+            <input type="text" {...register("username", { required: true })} />
             <span>{errors.username?.message}</span>
           </div>
 
           <div>
-            <input {...register("password", { required: true })} />
+            <input type="text" {...register("password", { required: true })} />
             <span>{errors.password?.message}</span>
           </div>
           <button>{sending ? "Loggin in..." : "Login"}</button>
