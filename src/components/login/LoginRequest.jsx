@@ -23,9 +23,8 @@ import Header from "../heading/Heading";
  */
 
 //const url = BASE_URL + TOKEN_PATH;
-//const url = BASE_URL + "/api/auth/local";
+const url = BASE_URL + "/api/auth/local";
 
-const url = "http://localhost:1337/api/auth/local";
 console.log(url);
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
@@ -54,8 +53,8 @@ function LoginForm() {
 
     try {
       const response = await axios.post(url, {
-        identifier: username,
-        password: password,
+        identifier: "guntherdemo@gmail.com",
+        password: "password1",
       });
       setAuth(response.data.jwt);
       console.log(data);
