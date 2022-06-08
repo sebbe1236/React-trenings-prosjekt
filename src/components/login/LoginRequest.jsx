@@ -25,7 +25,6 @@ import Header from "../heading/Heading";
 //const url = BASE_URL + TOKEN_PATH;
 const url = BASE_URL + "/api/auth/local";
 
-console.log(url);
 const schema = yup.object().shape({
   username: yup.string().required("fill inn your username"),
   password: yup.string().required("please fill in your password"),
@@ -46,18 +45,18 @@ function LoginForm() {
 
   const [auth, setAuth] = useAuth();
 
-  async function onSubmit(data, username, password) {
+  async function onSubmit(data) {
     setSubmit(true);
     setloginError(null);
-    console.log(data);
 
     try {
       const response = await axios.post(url, {
-        identifier: "guntherdemo@gmail.com",
-        password: "password1",
+        identifier: data.username,
+        password: data.password,
       });
       setAuth(response.data.jwt);
-      console.log(data);
+      console.log(response.data.user);
+
       console.log(url);
       console.log("login succesful", response.data);
 
