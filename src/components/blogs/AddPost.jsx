@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../../constants/api";
 import { useForm } from "react-hook-form";
-
 import FormErrorMessage from "../common/FormErrorMessage";
 import { useAuth } from "../context/AuthContext";
+
 function AddBlog() {
   const [submiting, setSubmit] = useState(false);
   const [error, setError] = useState(null);
@@ -15,13 +15,13 @@ function AddBlog() {
     formState: { errors },
   } = useForm();
 
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
 
   async function onSubmit(data) {
     setSubmit(true);
     setError(null);
 
-    const url = `${BASE_URL}/products`;
+    const url = `${BASE_URL}/api/products`;
 
     const formData = new FormData();
 
@@ -34,7 +34,7 @@ function AddBlog() {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: `Bearer ${auth.token}`,
+        Authorization: `Bearer ${auth}`,
       },
     };
     try {
