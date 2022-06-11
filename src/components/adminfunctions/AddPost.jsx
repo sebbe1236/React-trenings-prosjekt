@@ -25,9 +25,9 @@ function AddBlog() {
 
     const formData = new FormData();
 
-    const dataApp = JSON.stringify({ title: data.title, description: data.description });
+    const dataApp = JSON.stringify({ name: data.name, description: data.description });
 
-    formData.append("files.image", data.image);
+    formData.append("file.image", data.image);
     formData.append("data", dataApp);
 
     const options = {
@@ -55,7 +55,7 @@ function AddBlog() {
         {error && <FormErrorMessage>{error}</FormErrorMessage>}
         <fieldset disabled={submiting}>
           <div>
-            <input type="text" {...register("title", { required: true })} />
+            <input type="text" {...register("name", { required: true })} />
             <span>{errors.title?.message}</span>
           </div>
           <div>

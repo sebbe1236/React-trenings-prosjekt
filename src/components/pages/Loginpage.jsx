@@ -1,7 +1,7 @@
 import React from "react";
 //import { BASE_URL } from "../../constants/api";
-import Header from "../heading/Heading";
-import LogInform from "../login/LoginRequest";
+import Header from "../layout/heading/Heading";
+import LogInform from "../adminfunctions/login/LoginRequest";
 function Login() {
   return (
     <>

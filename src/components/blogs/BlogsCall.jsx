@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../heading/Heading";
+import Header from "../layout/heading/Heading";
 function Blogs() {
   return <Header heading={"Blogs"} />;
 }

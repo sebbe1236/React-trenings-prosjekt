@@ -5,10 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/nav/Navbar";
 import Home from "./components/pages/Homepage";
 import Blogs from "./components/blogs/BlogsCall";
-import AddBlog from "./components/blogs/AddPost";
+import AddBlog from "./components/adminfunctions/AddPost";
 import Login from "./components/pages/Loginpage";
 import Authentication from "./components/context/AuthContext";
-import FooterElement from "./components/footer/Footer";
+import FooterElement from "./components/layout/footer/Footer";
 
 function App() {
   return (
