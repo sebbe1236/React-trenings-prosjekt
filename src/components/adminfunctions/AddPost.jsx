@@ -27,7 +27,7 @@ function AddBlog() {
 
     const dataApp = JSON.stringify({ name: data.name, description: data.description, price: data.price });
 
-    formData.append("file.image", data.image[0]);
+    formData.append("file.image", data.image);
     formData.append("data", dataApp);
 
     const options = {
