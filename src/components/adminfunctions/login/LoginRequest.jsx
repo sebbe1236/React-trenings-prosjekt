@@ -14,15 +14,10 @@ import Header from "../../layout/heading/Heading";
 /**
  * Prøv å restart app når du endrer endpoints tilbake til strapi
  * username param returns undefined which makes the form not render
- * @param {username}
- * password param returns undefined which makes the form not render
- * @param {password}
- * solved with:
+ * Solved with adding user. infront of properties
  *
- * https://stackoverflow.com/questions/66927051/getting-uncaught-typeerror-path-split-is-not-a-function-in-react
  */
 
-//const url = BASE_URL + TOKEN_PATH;
 const url = BASE_URL + "/api/auth/local";
 
 const schema = yup.object().shape({
