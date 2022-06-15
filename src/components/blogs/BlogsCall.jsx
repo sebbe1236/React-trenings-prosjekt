@@ -9,7 +9,7 @@ import { Container, Row, Col } from "react-bootstrap";
 const url = BASE_URL + "/api/products?populate=*";
 
 function Blogs() {
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -43,9 +43,9 @@ function Blogs() {
         <Row xs={1} md={4} lg={6}>
           {products.data?.map((product) => {
             return (
-              <>
+              <div key={product.id}>
                 <h1>{product.attributes.name}</h1>
-              </>
+              </div>
             );
           })}
         </Row>
