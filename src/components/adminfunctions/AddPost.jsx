@@ -21,13 +21,13 @@ function AddBlog() {
     setSubmit(true);
     setError(null);
 
-    const url = `${BASE_URL}/api/products`;
+    const url = `${BASE_URL}/api/products?populate=*`;
 
     const formData = new FormData();
 
     const dataApp = JSON.stringify({ name: data.name, description: data.description, price: data.price });
 
-    formData.append("file.image", data.image);
+    formData.append("files.image", data.image);
     formData.append("data", dataApp);
 
     const options = {
@@ -63,7 +63,7 @@ function AddBlog() {
             <span>{errors.title?.message}</span>
           </div>
           <div>
-            <input type="file" {...register("file", { required: true })} placeholder="file" />
+            <input type="file" {...register("files", { required: true })} placeholder="file" />
             <span>{errors.title?.message}</span>
           </div>
           <div>
