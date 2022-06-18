@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,gBAAgB,CAAC,GAAG,CAAC;EACnB,KAAK,EAAE,IAAI;CACZ",
+    "sources": [
+        "../src/sass/main.scss",
+        "../src/sass/partials/_productspage.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

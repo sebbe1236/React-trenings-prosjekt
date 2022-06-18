@@ -3,13 +3,14 @@ import Header from "../layout/heading/Heading";
 import { BASE_URL } from "../../constants/api";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 
 const url = BASE_URL + "/api/products?populate=*";
 
 function Blogs() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -40,12 +41,18 @@ function Blogs() {
   return (
     <>
       <Container fluid>
-        <Row xs={1} md={4} lg={6}>
+        <Row xs={1} md={4} lg={6} className="blogs_container">
           {products.data?.map((product) => {
             return (
-              <div key={product.id}>
-                <h1>{product.attributes.name}</h1>
-              </div>
+              <Col key={product.id}>
+                <Link to={`/blog/${product.id}`}>
+                  <h1>{product.attributes.name}</h1>
+                  <img
+                    src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
+                    alt={"wheeelss"}
+                  ></img>
+                </Link>
+              </Col>
             );
           })}
         </Row>
