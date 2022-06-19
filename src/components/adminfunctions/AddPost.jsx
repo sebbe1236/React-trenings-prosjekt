@@ -29,8 +29,8 @@ function AddBlog() {
 
     formData.append("files.image", data.image[0]);
     formData.append("data", dataApp);
-    //det man legger inn som property etter "files.image" må være det samme som er i (register----(image) i formen)
-    //Hvis register har het file f example så har det blitt ("files.file", data.file[0])
+    //det man legger inn som property etter "files.image" må være det samme som er i (register....(image) i formen)
+    //Hvis register i formen har het file f example så har det blitt ("files.file", data.file[0])
     const options = {
       method: "POST",
       body: formData,
