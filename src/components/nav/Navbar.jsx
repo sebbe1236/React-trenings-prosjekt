@@ -28,7 +28,7 @@ function Navigation() {
               <Link className="nav_links" to="/">
                 Home
               </Link>
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/products">Products</Link>
               {auth ? (
                 <>
                   <Link to="/addpost">Add post</Link> | <Button onClick={logout}>Log Out</Button>

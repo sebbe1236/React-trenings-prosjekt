@@ -9,7 +9,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const url = BASE_URL + "/api/products?populate=*";
 
-function Blogs() {
+function Products() {
   const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -45,7 +45,7 @@ function Blogs() {
           {products.data?.map((product) => {
             return (
               <Col key={product.id}>
-                <Link to={`/blog/${product.id}`}>
+                <Link to={`/product/${product.id}`}>
                   <h1>{product.attributes.name}</h1>
                   <img
                     src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
@@ -61,4 +61,4 @@ function Blogs() {
   );
 }
 
-export default Blogs;
+export default Products;

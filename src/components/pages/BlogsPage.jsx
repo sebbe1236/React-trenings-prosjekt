@@ -1,12 +1,12 @@
 import React from "react";
-import Blogs from "../apicalls/BlogsApiCall";
+import Products from "../apicalls/BlogsApiCall";
 
-function BlogsPage() {
+function ProductsPage() {
   return (
     <>
-      <Blogs />;
+      <Products />;
     </>
   );
 }
 
-export default BlogsPage;
+export default ProductsPage;

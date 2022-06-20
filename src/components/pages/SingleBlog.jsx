@@ -1,11 +1,11 @@
 import React from "react";
-import Blog from "../apicalls/SingleBlog";
-function SingleBlog() {
+import Product from "../apicalls/SingleProduct";
+function SingleProduct() {
   return (
     <>
-      <Blog />
+      <Product />
     </>
   );
 }
 
-export default SingleBlog;
+export default SingleProduct;

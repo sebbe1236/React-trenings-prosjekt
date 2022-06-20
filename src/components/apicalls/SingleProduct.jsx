@@ -9,8 +9,8 @@ const url = BASE_URL;
 //const url = BASE_URL + "/api/products?populate=*";
 //bilde blir ikke med over så må eventuelt gjøre noe med urln
 
-function Blog() {
-  const [singelBlog, SetSingleBlog] = useState({});
+function Product() {
+  const [singelProduct, SetSingleProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
@@ -20,7 +20,7 @@ function Blog() {
         const response = await axios.get(url + `/api/products/${id}?populate=*`);
         const data = response.data;
         console.log(data);
-        SetSingleBlog(data);
+        SetSingleProduct(data);
       } catch (error) {
         console.log("BUUUUUUUUU");
         setError(error.toString());
@@ -41,9 +41,9 @@ function Blog() {
     <>
       <Container>
         <Row>
-          <h3>{singelBlog.data.attributes.publishedAt}</h3>
+          <h3>{singelProduct.data.attributes.publishedAt}</h3>
           <img
-            src={`http://localhost:1337${singelBlog.data.attributes.image.data.attributes.url}`}
+            src={`http://localhost:1337${singelProduct.data.attributes.image.data.attributes.url}`}
             alt={"wheeelss"}
           ></img>
         </Row>
@@ -52,4 +52,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default Product;
