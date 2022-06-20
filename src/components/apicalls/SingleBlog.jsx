@@ -17,7 +17,7 @@ function Blog() {
   useEffect(() => {
     const singelFetch = async () => {
       try {
-        const response = await axios.get(url + `/api/products/${id}`);
+        const response = await axios.get(url + `/api/products/${id}?populate=*`);
         const data = response.data;
         console.log(data);
         SetSingleBlog(data);
@@ -42,6 +42,10 @@ function Blog() {
       <Container>
         <Row>
           <h3>{singelBlog.data.attributes.publishedAt}</h3>
+          <img
+            src={`http://localhost:1337${singelBlog.data.attributes.image.data.attributes.url}`}
+            alt={"wheeelss"}
+          ></img>
         </Row>
       </Container>
     </>
