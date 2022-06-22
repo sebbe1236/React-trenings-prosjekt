@@ -1,5 +1,5 @@
 import React from "react";
-import Products from "../apicalls/BlogsApiCall";
+import Products from "../apicalls/ProductsCall";
 
 function ProductsPage() {
   return (

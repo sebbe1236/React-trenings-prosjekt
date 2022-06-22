@@ -2,7 +2,7 @@
 import "./sass/main.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navigation from "./components/nav/Navbar";
+import Navigation from "./components/layout/nav/Navbar";
 import Home from "./components/pages/Homepage";
 
 import AddBlog from "./components/adminfunctions/AddPost";
