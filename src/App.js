@@ -4,8 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/layout/nav/Navbar";
 import Home from "./components/pages/Homepage";
-
-import AddBlog from "./components/adminfunctions/AddPost";
+import EditPostPage from "./components/pages/EditPostPage";
+import AddBlog from "./components/adminfunctions/AddProduct";
+import Addpostpage from "./components/pages/Addpostpage";
 import Login from "./components/pages/Loginpage";
 import Authentication from "./components/context/AuthContext";
 import FooterElement from "./components/layout/footer/Footer";
@@ -22,7 +23,8 @@ function App() {
           <Route path="/products" element={<ProductPage />} />
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/addpost" element={<AddBlog />} />
+          <Route path="/addpost" element={<Addpostpage />} />
+          <Route path="/editproduct/:id" element={<EditPostPage />} />
         </Routes>
       </BrowserRouter>
       <FooterElement />

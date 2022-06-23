@@ -52,10 +52,9 @@ function LoginForm() {
       setAuth(response.data.jwt);
       console.log(response.data.user);
 
-      console.log(url);
       console.log("login succesful", response.data);
 
-      navigate("/blogs");
+      navigate("/addpost");
     } catch (error) {
       console.log("error, invalid inputs", error.message);
       setloginError(error.toString());
