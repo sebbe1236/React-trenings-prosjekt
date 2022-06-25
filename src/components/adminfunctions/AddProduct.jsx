@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import FormErrorMessage from "../common/FormErrorMessage";
 import { useAuth } from "../context/AuthContext";
 
-function AddBlog() {
+function AddProduct() {
   const [submiting, setSubmit] = useState(false);
   const [error, setError] = useState(null);
 
@@ -78,4 +78,4 @@ function AddBlog() {
   );
 }
 
-export default AddBlog;
+export default AddProduct;

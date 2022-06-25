@@ -27,6 +27,7 @@ function EditProduct() {
     };
     fetchProduct();
   }, []);
+  //Kan være det samme som du gjorde i POST for put requestn, bare at man må endre post til put i options
 
   return (
     <>
