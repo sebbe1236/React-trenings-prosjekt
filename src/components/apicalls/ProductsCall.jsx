@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
 import { BASE_URL } from "../../constants/api";
+import DeleteProduct from "../adminfunctions/DeleteProduct";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -61,11 +62,14 @@ function Products() {
                 {auth ? (
                   <>
                     <Link to={`/editproduct/${product.id}`}>
-                      <Button>Edit product</Button>
+                      <Button variant="info m-3">Edit product</Button>
                     </Link>
+                    <Button variant="danger m-3" onClick={DeleteProduct}>
+                      Delete product
+                    </Button>
                   </>
                 ) : (
-                  <Button>Add to Cart</Button>
+                  <p>${product.attributes.price}</p>
                 )}
               </Col>
             );

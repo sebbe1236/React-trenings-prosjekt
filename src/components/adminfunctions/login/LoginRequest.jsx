@@ -52,7 +52,7 @@ function LoginForm() {
       setAuth(response.data.jwt);
       console.log(response.data.user);
 
-      console.log("login succesful", response.data);
+      console.log("login succesful");
 
       navigate("/addpost");
     } catch (error) {

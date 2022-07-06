@@ -31,6 +31,7 @@ function AddProduct() {
     formData.append("data", dataApp);
     //det man legger inn som property etter "files.image" må være det samme som er i (register....(image) i formen)
     //Hvis register i formen har het file f example så har det blitt ("files.file", data.file[0])
+    //Grunnen til at man har data. før propertysn i stringify er at man trenger det når man bruker react hook form.
     const options = {
       method: "POST",
       body: formData,
