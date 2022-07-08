@@ -31,7 +31,7 @@ function LoginForm() {
     resolver: yupResolver(schema),
   });
 
-  const [setAuth] = useAuth();
+  const [auth, setAuth] = useAuth();
 
   async function onSubmit(data) {
     setSubmit(true);

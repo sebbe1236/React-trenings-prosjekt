@@ -31,7 +31,7 @@ function DeleteProduct({ id }) {
 
   return (
     <>
-      <Button onclick={handleDelete}>Delete product</Button>
+      <Button onClick={handleDelete}>Delete product</Button>
     </>
   );
 
