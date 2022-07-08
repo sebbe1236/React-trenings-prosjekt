@@ -5,8 +5,10 @@ import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../constants/api";
 import { useAuth } from "../context/AuthContext";
+import DeleteProduct from "./DeleteProduct";
 
 function EditProduct() {
+  const [product, setProduct] = useState(null);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -21,7 +23,7 @@ function EditProduct() {
       try {
         const response = await fetch(url + `/api/products/${id}?populate=*`);
         const json = await response.json();
-
+        setProduct(json);
         setName(json.data.attributes.name);
         setPrice(json.data.attributes.price);
         setDescription(json.data.attributes.description);
@@ -115,7 +117,8 @@ function EditProduct() {
             <span>{errors.title?.message}</span>
           </div>
         </fieldset>
-        <button type="submit">Send</button>
+        <button type="submit">{submiting ? "sending..." : "Update"}</button>
+        <DeleteProduct />
       </form>
     </>
   );

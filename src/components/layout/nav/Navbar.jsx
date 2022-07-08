@@ -34,7 +34,7 @@ function Navigation() {
                   <Link to="/addpost">Add post</Link> | <Button onClick={logout}>Log Out</Button>
                 </>
               ) : (
-                <Link to="/login">Login</Link>
+                <Link to="/login">Admin login</Link>
               )}
             </Nav>
           </Navbar.Collapse>

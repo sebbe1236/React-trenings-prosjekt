@@ -1,12 +1,11 @@
 import React from "react";
-import { useAuth } from "../context/AuthContext";
 import { BASE_URL } from "../../constants/api";
-import DeleteProduct from "../adminfunctions/DeleteProduct";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
 
 const url = BASE_URL + "/api/products?populate=*";
 
@@ -53,7 +52,7 @@ function Products() {
             return (
               <Col key={product.id}>
                 <Link to={`/product/${product.id}`}>
-                  <h1>{product.attributes.name}</h1>
+                  <h3>{product.attributes.name}</h3>
                   <img
                     src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
                     alt={"wheeelss"}
@@ -64,9 +63,6 @@ function Products() {
                     <Link to={`/editproduct/${product.id}`}>
                       <Button variant="info m-3">Edit product</Button>
                     </Link>
-                    <Button variant="danger m-3" onClick={DeleteProduct}>
-                      Delete product
-                    </Button>
                   </>
                 ) : (
                   <p>${product.attributes.price}</p>

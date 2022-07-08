@@ -1,11 +1,39 @@
 import { BASE_URL } from "../../constants/api";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function DeleteProduct() {
-  console.log("Helloo world");
+import { useAuth } from "../context/AuthContext";
+import { Button } from "react-bootstrap";
+
+function DeleteProduct({ id }) {
+  const [auth] = useAuth();
+  const navigate = useNavigate();
+  const url = `${BASE_URL}/api/products${id}`;
+
+  const options = {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${auth}`,
+    },
+  };
+
+  async function handleDelete() {
+    try {
+      const response = await fetch(url, options);
+      const json = await response.json();
+      console.log(json);
+      console.log("test");
+      navigate("/products");
+    } catch (err) {
+      console.log(err.message, "shieet");
+    }
+  }
+  return (
+    <>
+      <Button onclick={handleDelete}>Delete product</Button>
+    </>
+  );
+
+  // artikkel potensiell: https://www.positronx.io/react-axios-send-asynchronous-http-delete-request-tutorial/
 }
 
 export default DeleteProduct;

@@ -7,16 +7,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import axios from "axios";
-import { BASE_URL, TOKEN_PATH } from "../../../constants/api";
+import { BASE_URL } from "../../../constants/api";
 import { useAuth } from "../../context/AuthContext";
 import Header from "../../layout/heading/Heading";
-
-/**
- * Prøv å restart app når du endrer endpoints tilbake til strapi
- * username param returns undefined which makes the form not render
- * Solved with adding user. infront of properties
- *
- */
 
 const url = BASE_URL + "/api/auth/local";
 

@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/api";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
 
 const url = BASE_URL;
 //const url = BASE_URL + "/api/products?populate=*";
@@ -13,6 +14,7 @@ function Product() {
   const [singelProduct, SetSingleProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const { id } = useParams();
   useEffect(() => {
     const singelFetch = async () => {
@@ -36,7 +38,7 @@ function Product() {
   if (error) {
     return <div>Some error occured</div>;
   }
-  //Endre alt til produkt istedet for blog seneeree.
+
   return (
     <>
       <Container>

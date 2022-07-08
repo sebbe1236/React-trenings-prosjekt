@@ -4,7 +4,7 @@ import Header from "../layout/heading/Heading";
 function Addpostpage() {
   return (
     <>
-      <Header heading={"Post form/add new product"} />;
+      <Header heading={"add new product"} />;
       <AddProduct />
     </>
   );
