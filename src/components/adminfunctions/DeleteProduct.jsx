@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 function DeleteProduct({ id }) {
   const [auth] = useAuth();
   const navigate = useNavigate();
-  const url = `${BASE_URL}/api/products${id}`;
+  const url = `${BASE_URL}/api/products/${id}`;
 
   const options = {
     method: "DELETE",
@@ -20,6 +20,7 @@ function DeleteProduct({ id }) {
     try {
       const response = await fetch(url, options);
       const json = await response.json();
+      console.log("Hello woorld");
       console.log(json);
       console.log("test");
       navigate("/products");
@@ -27,6 +28,7 @@ function DeleteProduct({ id }) {
       console.log(err.message, "shieet");
     }
   }
+
   return (
     <>
       <Button onclick={handleDelete}>Delete product</Button>

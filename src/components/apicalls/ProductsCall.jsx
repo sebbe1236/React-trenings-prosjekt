@@ -3,6 +3,7 @@ import { BASE_URL } from "../../constants/api";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import DeleteProduct from "../adminfunctions/DeleteProduct";
 import axios from "axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
@@ -63,6 +64,7 @@ function Products() {
                     <Link to={`/editproduct/${product.id}`}>
                       <Button variant="info m-3">Edit product</Button>
                     </Link>
+                    <DeleteProduct id={product.id} />
                   </>
                 ) : (
                   <p>${product.attributes.price}</p>

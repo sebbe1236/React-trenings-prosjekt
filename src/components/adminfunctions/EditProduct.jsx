@@ -8,7 +8,7 @@ import { useAuth } from "../context/AuthContext";
 import DeleteProduct from "./DeleteProduct";
 
 function EditProduct() {
-  const [product, setProduct] = useState(null);
+  //const [product, setProduct] = useState(null);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -23,7 +23,8 @@ function EditProduct() {
       try {
         const response = await fetch(url + `/api/products/${id}?populate=*`);
         const json = await response.json();
-        setProduct(json);
+        //setProduct(json.data);
+
         setName(json.data.attributes.name);
         setPrice(json.data.attributes.price);
         setDescription(json.data.attributes.description);
@@ -33,7 +34,6 @@ function EditProduct() {
     };
     fetchProduct();
   }, []);
-  //Kan være det samme som du gjorde i POST for put requestn, bare at man må endre post til put i options
 
   const {
     register,
@@ -118,7 +118,6 @@ function EditProduct() {
           </div>
         </fieldset>
         <button type="submit">{submiting ? "sending..." : "Update"}</button>
-        <DeleteProduct />
       </form>
     </>
   );
