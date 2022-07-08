@@ -17,16 +17,18 @@ function DeleteProduct({ id }) {
   };
 
   async function handleDelete() {
-    try {
-      const response = await fetch(url, options);
-      const json = await response.json();
-      console.log("Hello woorld");
-      console.log(json);
-      console.log("test");
-      navigate("/products");
-    } catch (err) {
-      console.log(err.message, "shieet");
-    }
+    const confirmDelete = window.confirm("Delete this product?");
+    if (confirmDelete)
+      try {
+        const response = await fetch(url, options);
+        const json = await response.json();
+        console.log("Hello woorld");
+        console.log(json);
+        console.log("test");
+        navigate("/");
+      } catch (err) {
+        console.log(err.message, "shieet");
+      }
   }
 
   return (

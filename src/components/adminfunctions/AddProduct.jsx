@@ -72,7 +72,7 @@ function AddProduct() {
             <input type="text" {...register("description", { required: true })} placeholder="description" />
             <span>{errors.excerpt?.message}</span>
           </div>
-          <button type="submit">Send</button>
+          <button type="submit">{submiting ? "sending..." : "send"}</button>
         </fieldset>
       </form>
     </>
