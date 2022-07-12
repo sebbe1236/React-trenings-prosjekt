@@ -1,6 +1,6 @@
 import React from "react";
 import AddProduct from "../adminfunctions/AddProduct";
-import Header from "../layout/heading/Heading";
+import Header from "../layout/Heading";
 function Addpostpage() {
   return (
     <>

@@ -2,14 +2,14 @@
 import "./sass/main.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navigation from "./components/layout/nav/Navbar";
+import Navigation from "./components/layout/Navbar";
 import Home from "./components/pages/Homepage";
 import EditPostPage from "./components/pages/EditPostPage";
 
 import Addpostpage from "./components/pages/Addpostpage";
 import Login from "./components/pages/Loginpage";
 import Authentication from "./components/context/AuthContext";
-import FooterElement from "./components/layout/footer/Footer";
+import FooterElement from "./components/layout/Footer";
 import ProductsPage from "./components/pages/BlogsPage";
 import SingleProduct from "./components/pages/SingleBlog";
 

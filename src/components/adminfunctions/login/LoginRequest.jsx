@@ -9,7 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { BASE_URL } from "../../../constants/api";
 import { useAuth } from "../../context/AuthContext";
-import Header from "../../layout/heading/Heading";
+import Header from "../../layout/Heading";
 
 const url = BASE_URL + "/api/auth/local";
 
