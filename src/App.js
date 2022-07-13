@@ -3,7 +3,7 @@ import "./sass/main.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/layout/Navbar";
-import Home from "./components/pages/Homepage";
+import Home from "./components/pages/home/Homepage";
 import EditPostPage from "./components/pages/EditPostPage";
 
 import Addpostpage from "./components/pages/Addpostpage";
