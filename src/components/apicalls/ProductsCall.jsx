@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import DeleteProduct from "../adminfunctions/DeleteProduct";
 import axios from "axios";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 
 const url = BASE_URL + "/api/products?populate=*";
@@ -52,23 +52,26 @@ function Products() {
           {products.data?.map((product) => {
             return (
               <Col key={product.id}>
-                <Link to={`/product/${product.id}`}>
-                  <h3>{product.attributes.name}</h3>
-                  <img
-                    src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
-                    alt={"wheeelss"}
-                  ></img>
-                </Link>
-                {auth ? (
-                  <>
-                    <Link to={`/editproduct/${product.id}`}>
-                      <Button variant="info m-3">Edit product</Button>
-                    </Link>
-                    <DeleteProduct id={product.id} />
-                  </>
-                ) : (
-                  <p>${product.attributes.price}</p>
-                )}
+                <Card className="text-center text-md-right">
+                  <Link to={`/product/${product.id}`}>
+                    <img
+                      src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
+                      alt={"wheeelss"}
+                    ></img>
+                    <Card.Title>{product.attributes.name}</Card.Title>
+                    <Button>View</Button>
+                  </Link>
+                  {auth ? (
+                    <>
+                      <Link to={`/editproduct/${product.id}`}>
+                        <Button variant="info m-3">Edit product</Button>
+                      </Link>
+                      <DeleteProduct id={product.id} />
+                    </>
+                  ) : (
+                    <p>${product.attributes.price}</p>
+                  )}
+                </Card>
               </Col>
             );
           })}

@@ -33,7 +33,9 @@ function DeleteProduct({ id }) {
 
   return (
     <>
-      <Button onClick={handleDelete}>Delete product</Button>
+      <Button onClick={handleDelete} variant="danger">
+        Delete product
+      </Button>
     </>
   );
 
