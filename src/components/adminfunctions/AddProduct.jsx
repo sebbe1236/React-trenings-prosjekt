@@ -14,6 +14,7 @@ import { useAuth } from "../context/AuthContext";
 function AddProduct() {
   const [submitting, setSubmit] = useState(false);
   const [error, setError] = useState(null);
+  const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
 
   const {
     register,
@@ -50,6 +51,7 @@ function AddProduct() {
       const response = await fetch(url, options);
       const json = await response.json();
       console.log(json);
+      setIsSuccessfullySubmitted(json);
     } catch (error) {
       console.log("error");
       setError(error.toString());
@@ -64,24 +66,29 @@ function AddProduct() {
         {error && <FormErrorMessage>{error}</FormErrorMessage>}
         <fieldset disabled={submitting}>
           <div>
-            <input type="text" {...register("name", { required: true })} placeholder="name" />
-            <span>{errors.title?.message}</span>
+            <input type="text" {...register("name", { required: true, minLength: 5 })} placeholder="name" />
+            {errors.name && <span>Must be over 5 characters</span>}
           </div>
           <div>
-            <input type="text" {...register("price", { required: true })} placeholder="price" />
-            <span>{errors.title?.message}</span>
+            <input type="text" {...register("price", { required: true, minLength: 2 })} placeholder="price" />
+            {errors.price && <span>Enter a valid number</span>}
           </div>
           <div>
             <input type="file" {...register("image", { required: true })} placeholder="file" />
             <span>{errors.title?.message}</span>
           </div>
           <div>
-            <input type="text" {...register("description", { required: true })} placeholder="description" />
-            <span>{errors.excerpt?.message}</span>
+            <input
+              type="text"
+              {...register("description", { required: true, minLength: 20 })}
+              placeholder="description"
+            />
+            {errors.description && <span>Must be over 5 characters</span>}
           </div>
           <button type="submit">{submitting ? "sending..." : "send"}</button>
         </fieldset>
       </form>
+      {isSuccessfullySubmitted && <div className="success">Post added</div>}
     </>
   );
 }

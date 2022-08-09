@@ -25,6 +25,7 @@ const schema = yup.object().shape({
 function LoginForm() {
   const [sending, setSubmit] = useState(false);
   const [loginError, setLoginError] = useState(null);
+
   const navigate = useNavigate();
 
   const {
@@ -48,10 +49,9 @@ function LoginForm() {
       });
       setAuth(response.data.jwt);
       console.log(response.data.user);
+      navigate("/addpost");
 
       console.log("login successful");
-
-      navigate("/addpost");
     } catch (error) {
       console.log("error, invalid inputs", error.message);
       setLoginError(error.toString());
