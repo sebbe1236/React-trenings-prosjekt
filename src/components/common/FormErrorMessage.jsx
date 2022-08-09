@@ -4,6 +4,6 @@ export default function ValidationError({ childrenprops }) {
   return <div className="form-errormessage">{childrenprops}</div>;
 }
 
-ValidationError.proptTypes = {
+ValidationError.propTypes = {
   children: PropTypes.node.isRequired,
 };

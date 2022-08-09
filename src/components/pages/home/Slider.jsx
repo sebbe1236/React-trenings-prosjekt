@@ -15,16 +15,14 @@ function Slider() {
     const fetchImage = async () => {
       try {
         const response = await axios.get(url);
-        console.log(response.data);
+        console.log(response.data.data);
         SetImage(response.data);
       } catch (err) {
-        console.log(err.message, "BUUUU");
+        console.log(err.message, "Some error");
       }
     };
     fetchImage();
   }, []);
-
-  //Få fiksa timer og alt captions på hvert bilde imårra.
 
   return (
     <>

@@ -12,7 +12,7 @@ function EditProduct() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [submiting, setSubmit] = useState(null);
+  const [submitting, setSubmit] = useState(null);
   const [error, setError] = useState(null);
   const { id } = useParams();
 
@@ -29,7 +29,7 @@ function EditProduct() {
         setPrice(json.data.attributes.price);
         setDescription(json.data.attributes.description);
       } catch (error) {
-        console.log("buuuu");
+        console.log("something is not working");
       }
     };
     fetchProduct();
@@ -75,7 +75,7 @@ function EditProduct() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset disabled={submiting}>
+        <fieldset disabled={submitting}>
           {error}
           <div>
             <input
@@ -117,7 +117,7 @@ function EditProduct() {
             <span>{errors.title?.message}</span>
           </div>
         </fieldset>
-        <button type="submit">{submiting ? "sending..." : "Update"}</button>
+        <button type="submit">{submitting ? "sending..." : "Update"}</button>
       </form>
     </>
   );

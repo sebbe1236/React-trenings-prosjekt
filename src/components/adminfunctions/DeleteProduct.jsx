@@ -1,8 +1,14 @@
 import { BASE_URL } from "../../constants/api";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { useAuth } from "../context/AuthContext";
 import { Button } from "react-bootstrap";
+
+/**
+ *
+ * @param {id} is passed through props which is the id of the object that is going too be deleted.
+ * the props is passed from the DeleteProduct is assigned the import in ProductsCall then which adds the id to be deleted there.
+ * @returns
+ */
 
 function DeleteProduct({ id }) {
   const [auth] = useAuth();
@@ -22,12 +28,12 @@ function DeleteProduct({ id }) {
       try {
         const response = await fetch(url, options);
         const json = await response.json();
-        console.log("Hello woorld");
+
         console.log(json);
         console.log("test");
         navigate("/");
       } catch (err) {
-        console.log(err.message, "shieet");
+        console.log(err.message, "shit");
       }
   }
 
@@ -38,8 +44,6 @@ function DeleteProduct({ id }) {
       </Button>
     </>
   );
-
-  // artikkel potensiell: https://www.positronx.io/react-axios-send-asynchronous-http-delete-request-tutorial/
 }
 
 export default DeleteProduct;

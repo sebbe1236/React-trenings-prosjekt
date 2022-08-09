@@ -5,11 +5,15 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import axios from "axios";
 import { BASE_URL } from "../../../constants/api";
 import { useAuth } from "../../context/AuthContext";
 import Header from "../../layout/Heading";
+
+/**
+ * Function LoginForm that logs in with strapi v4 and uses context for authentication.
+ * react hook form is used for validation of the inputs
+ */
 
 const url = BASE_URL + "/api/auth/local";
 
@@ -20,7 +24,7 @@ const schema = yup.object().shape({
 
 function LoginForm() {
   const [sending, setSubmit] = useState(false);
-  const [loginError, setloginError] = useState(null);
+  const [loginError, setLoginError] = useState(null);
   const navigate = useNavigate();
 
   const {
@@ -35,7 +39,7 @@ function LoginForm() {
 
   async function onSubmit(data) {
     setSubmit(true);
-    setloginError(null);
+    setLoginError(null);
 
     try {
       const response = await axios.post(url, {
@@ -45,12 +49,12 @@ function LoginForm() {
       setAuth(response.data.jwt);
       console.log(response.data.user);
 
-      console.log("login succesful");
+      console.log("login successful");
 
       navigate("/addpost");
     } catch (error) {
       console.log("error, invalid inputs", error.message);
-      setloginError(error.toString());
+      setLoginError(error.toString());
     } finally {
       setSubmit(false);
     }
@@ -71,7 +75,7 @@ function LoginForm() {
             <input type="text" {...register("password", { required: true })} />
             <span>{errors.password?.message}</span>
           </div>
-          <button>{sending ? "Loggin in..." : "Login"}</button>
+          <button>{sending ? "Logging in..." : "Login"}</button>
         </fieldset>
       </form>
     </>

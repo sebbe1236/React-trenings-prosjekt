@@ -4,8 +4,15 @@ import { useForm } from "react-hook-form";
 import FormErrorMessage from "../common/FormErrorMessage";
 import { useAuth } from "../context/AuthContext";
 
+/**
+ *
+ * @returns AddProduct returns a function to add products to strapi backend.
+ * context is used for authentication
+ *
+ */
+
 function AddProduct() {
-  const [submiting, setSubmit] = useState(false);
+  const [submitting, setSubmit] = useState(false);
   const [error, setError] = useState(null);
 
   const {
@@ -31,7 +38,7 @@ function AddProduct() {
     formData.append("data", dataApp);
     //det man legger inn som property etter "files.image" må være det samme som er i (register....(image) i formen)
     //Hvis register i formen har het file f example så har det blitt ("files.file", data.file[0])
-    //Grunnen til at man har data. før propertysn i stringify er at man trenger det når man bruker react hook form.
+    //Grunnen til at man har data. før propertyene i stringify er at man trenger det når man bruker react hook form.
     const options = {
       method: "POST",
       body: formData,
@@ -55,7 +62,7 @@ function AddProduct() {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         {error && <FormErrorMessage>{error}</FormErrorMessage>}
-        <fieldset disabled={submiting}>
+        <fieldset disabled={submitting}>
           <div>
             <input type="text" {...register("name", { required: true })} placeholder="name" />
             <span>{errors.title?.message}</span>
@@ -72,7 +79,7 @@ function AddProduct() {
             <input type="text" {...register("description", { required: true })} placeholder="description" />
             <span>{errors.excerpt?.message}</span>
           </div>
-          <button type="submit">{submiting ? "sending..." : "send"}</button>
+          <button type="submit">{submitting ? "sending..." : "send"}</button>
         </fieldset>
       </form>
     </>

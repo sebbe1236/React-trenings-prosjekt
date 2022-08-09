@@ -4,7 +4,7 @@ import Header from "../layout/Heading";
 function EditPostPage() {
   return (
     <>
-      <Header heading={"put request/update product"} />
+      <Header>Edit product</Header>
       <EditProduct />
     </>
   );

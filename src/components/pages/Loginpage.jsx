@@ -5,7 +5,7 @@ import LogInform from "../adminfunctions/login/LoginRequest";
 function Login() {
   return (
     <>
-      <Header heading={"Login"} />
+      <Header>Log in with your information under</Header>
       <LogInform />
     </>
   );

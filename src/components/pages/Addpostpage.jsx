@@ -1,13 +1,13 @@
 import React from "react";
 import AddProduct from "../adminfunctions/AddProduct";
 import Header from "../layout/Heading";
-function Addpostpage() {
+function AddPostPage() {
   return (
     <>
-      <Header heading={"add new product"} />;
+      <Header>Add a new product</Header>
       <AddProduct />
     </>
   );
 }
 
-export default Addpostpage;
+export default AddPostPage;
