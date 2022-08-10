@@ -25,7 +25,7 @@ function AddProduct() {
 
   const [auth] = useAuth();
 
-  async function onSubmit(data) {
+  async function onSubmit(data, e) {
     setSubmit(true);
     setError(null);
 
@@ -51,6 +51,7 @@ function AddProduct() {
       const response = await fetch(url, options);
       const json = await response.json();
       console.log(json);
+      e.target.reset();
       setIsSuccessfullySubmitted(json);
     } catch (error) {
       console.log("error");

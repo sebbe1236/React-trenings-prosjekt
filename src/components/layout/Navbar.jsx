@@ -21,7 +21,7 @@ function Navigation() {
     <>
       <Navbar bg="dark" variant={"dark"} expand="lg">
         <Container>
-          <Navbar.Brand href="/">Sportss blog</Navbar.Brand>
+          <Navbar.Brand href="/">Sports blog</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="text-center">

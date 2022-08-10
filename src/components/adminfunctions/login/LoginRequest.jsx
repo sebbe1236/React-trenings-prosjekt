@@ -13,6 +13,7 @@ import Header from "../../layout/Heading";
 /**
  * Function LoginForm that logs in with strapi v4 and uses context for authentication.
  * react hook form is used for validation of the inputs
+ * @parameter data is used to send the data with react hook form, thats why its on data.username for example
  */
 
 const url = BASE_URL + "/api/auth/local";
